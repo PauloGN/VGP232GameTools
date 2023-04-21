@@ -182,6 +182,7 @@ GameObject:
   - component: {fileID: 863759071}
   - component: {fileID: 863759070}
   - component: {fileID: 863759069}
+  - component: {fileID: 863759072}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -254,6 +255,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &863759072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863759068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ffd597fbbdad4d40b57221b5f121050, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gd:
+    playerName: 
+    currentLevel: 0
+    savePointID: 0
 --- !u!1 &1733988550
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,18 +301,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapons:
-  - weaponName: Sword
-    dmg: 25
-    weight: 5
-    myInt: 3
-    pos: {x: 0, y: 0, z: 0}
-    attackSpeed: 18
   - weaponName: Axe
     dmg: 35
-    weight: 8
-    myInt: 0
+    weight: 15
+    myInt: 10
     pos: {x: 0, y: 0, z: 0}
-    attackSpeed: 10
+    attackSpeed: 55
+  - weaponName: Sword
+    dmg: 25
+    weight: 8
+    myInt: 40
+    pos: {x: 0, y: 0, z: 0}
+    attackSpeed: 99
   itemSlots: 0
   bagReference: {fileID: 0}
 --- !u!4 &1733988552

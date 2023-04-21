@@ -13,11 +13,11 @@ public class SaveLoadManager : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.S))
         {
-            SaveDataManager.Save(gd);
+            SaveDataBinaryM.Save(gd);
         }
         if(Input.GetKeyDown(KeyCode.L))
         {
-            gd = SaveDataManager.Load();
+            gd = SaveDataBinaryM.Load();
         }
 
     }
