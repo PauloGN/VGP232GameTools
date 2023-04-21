@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Weapon : Item
+public class Weapon
 {
     public string weaponName;
     public int dmg;
