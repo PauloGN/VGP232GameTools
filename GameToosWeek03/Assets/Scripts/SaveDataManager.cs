@@ -38,7 +38,7 @@ public static class SaveDataManager
         }
         else
         {
-            Debug.Log("Sace does not exist");
+            Debug.Log("Save does not exist");
         }
 
         return gd;
