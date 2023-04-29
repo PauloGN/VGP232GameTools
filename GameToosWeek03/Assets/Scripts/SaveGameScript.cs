@@ -11,7 +11,6 @@ public class SaveGameScript : MonoBehaviour
     public string directoryName = "Saves";
     public SaveGameContainer sgContainer;
 
-
     public void SaveBinaryToFile()
     {
         //To save in a directory, it must ve created first in case it does not exist yet
@@ -33,6 +32,4 @@ public class SaveGameScript : MonoBehaviour
         Debug.Log("Game saved to" + Directory.GetCurrentDirectory().ToString() + directoryName + ".bin");
 
     }
-
-
 }

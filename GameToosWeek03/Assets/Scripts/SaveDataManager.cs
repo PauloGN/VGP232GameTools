@@ -34,7 +34,6 @@ public static class SaveDataManager
         {
             string json = File.ReadAllText(fullpath);
             gd = JsonUtility.FromJson<GameData>(json);
-
         }
         else
         {

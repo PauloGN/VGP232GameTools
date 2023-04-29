@@ -30,7 +30,6 @@ public static class SaveDataBinaryM
         file.Close();
 
         Debug.Log("Saved in" + dir);
-
     }
 
     public static GameData Load()
