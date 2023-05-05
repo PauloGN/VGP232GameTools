@@ -44,7 +44,15 @@ public class CharacterData : ScriptableObject
                 magicDefense += (soulLevel + soulLevel) * (soulLevel);
                 magicPower += (soulLevel * soulLevel) * soulLevel;
 
-                break; 
+                break;
+            case CharClass.CC_Barbarian:
+
+                PhysicalDefense += soulLevel + (soulLevel * soulLevel);
+                physicalPower += (soulLevel * soulLevel);
+                magicDefense += (soulLevel * soulLevel) * soulLevel;
+                magicPower +=  (soulLevel + soulLevel) * (soulLevel);
+
+                break;
         }
 
     }
@@ -70,6 +78,14 @@ public class CharacterData : ScriptableObject
                 magicPower += (value);
 
                 break;
+            case CharClass.CC_Barbarian:
+
+                PhysicalDefense += (value);
+                magicDefense += (value);
+                physicalPower += (value * 0.5f);
+                magicPower += (value * 0.5f);
+
+                break;
         }
 
     }
@@ -93,6 +109,14 @@ public class CharacterData : ScriptableObject
                 physicalPower -= (value * 0.5f);
                 magicDefense -= (value);
                 magicPower -= (value);
+
+                break;
+            case CharClass.CC_Barbarian:
+
+                PhysicalDefense -= (value);
+                magicDefense -= (value);
+                physicalPower -= (value * 0.5f);
+                magicPower -= (value * 0.5f);
 
                 break;
         }
@@ -122,6 +146,12 @@ public class CharacterData : ScriptableObject
                 magicDefense = 35.0f;
                 physicalPower = 10.0f;
                 PhysicalDefense = 10.0f;
+                break;
+            case CharClass.CC_Barbarian:
+                magicPower = 2.0f;
+                magicDefense = 25.0f;
+                physicalPower = 35.0f;
+                PhysicalDefense = 80.0f;
                 break;
             default:
                 break;

@@ -9,14 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1183387a0878ac54991cc9c3bbbe592f, type: 3}
-  m_Name: Barbarian
+  m_Script: {fileID: 11500000, guid: 0514ae3338a06ae45896588735147a29, type: 3}
+  m_Name: Axe of power
   m_EditorClassIdentifier: 
-  myClass: 2
-  magicPower: 2
-  magicDefense: 25
-  physicalPower: 35
-  PhysicalDefense: 80
-  soulLevel: 0
-  weaponDatas: []
-  color: {r: 0.8679245, g: 0, b: 0, a: 1}
+  classeRestriction: 2
+  weaponName: Axe of Power
+  weaponDescription: the axe of the gods
+  weaponDamage: 88
+  weaponSprite: {fileID: 21300014, guid: fc26f483f9de71146874da8abe8a1053, type: 3}

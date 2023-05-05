@@ -22,7 +22,7 @@ public class Weapon : MonoBehaviour
 
         CharacterDataContainer playerREF = other.GetComponent<CharacterDataContainer>();
 
-        if (playerREF != null)
+        if (playerREF != null && weaponInfo.classeRestriction == playerREF.characterData[playerREF.GetIndexData()].myClass)
         {
 
             foreach (var item in playerREF.characterData[playerREF.GetIndexData()].weaponDatas)

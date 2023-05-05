@@ -2,7 +2,9 @@ using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
+using System.Xml.Linq;
 using UnityEditor;
 using UnityEditor.Rendering;
 using UnityEditor.U2D.Animation;
@@ -99,13 +101,20 @@ public class CharacterDataContainer : MonoBehaviour
         return isWeaponEquiped;
     }
 
+    public void ChangeCharacter()
+    {
+       UnequipWeapon();
+       SetIndexData((CharClass)((GetIndexData() + 1) % characterData.Length));
+       spriteREF.color = characterData[GetIndexData()].color;
+       updatePanel.DisplayInfoUpdated();
+    }
+
 }
 
 [CustomEditor(typeof(CharacterDataContainer))]
-public class SaveAndLoad : Editor
+public class InspectorTools : Editor
 {
 
-   
     private bool isWeaponEquipped;
 
     public override void OnInspectorGUI()
@@ -115,10 +124,7 @@ public class SaveAndLoad : Editor
         CharacterDataContainer container = (CharacterDataContainer)target;
         if (GUILayout.Button("Change Character"))
         {
-            container.UnequipWeapon();
-            container.SetIndexData((CharClass)((container.GetIndexData() +  1) % container.characterData.Length));
-            container.spriteREF.color = container.characterData[container.GetIndexData()].color;
-            container.updatePanel.DisplayInfoUpdated();
+            container.ChangeCharacter();
         }
 
         if (GUILayout.Button("Change Weapon"))
