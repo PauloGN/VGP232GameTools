@@ -34,7 +34,6 @@ public class LoadScript : MonoBehaviour
     
     }
 
-
     void LoadInfoOnScreeen(SaveGameContainer sg)
     {
         healthInfo.text = "Health: " + sg.health.ToString();
