@@ -11,16 +11,7 @@ public class TerrainGenerator : MonoBehaviour
     public event Action vegetationGenerated;
     private readonly int padding = 1;
 
-    private void OnValidate()
-    {
-        //GenerateTerrain();
-    }
-
-    private void Start()
-    {
-       // RemoveVegetation();
-       // GenerateTerrain();
-    }
+    [SerializeField] TerrainStruct upDateTerrainData;
 
     public TerrainData GenerateTerrain()
     {
@@ -32,6 +23,7 @@ public class TerrainGenerator : MonoBehaviour
         terrainData.size = new Vector3(terrainSettings.width, terrainSettings.depth, terrainSettings.height);
         GetComponent<Terrain>().terrainData = terrainData;
         AddVegetation(terrainData);
+
         return terrainData;
     }
 
@@ -80,16 +72,6 @@ public class TerrainGenerator : MonoBehaviour
 
     private float CalculateAlpha(int x, int y, int textureIndex) => CalculateHeight(x, y) >= textureIndex / (float)terrainSettings.textures.Count ? 1f : 0f;
 
-    public void ClearAndRegenerateTerrain()
-    {
-        terrainSettings.ClearAndRegenerateTerrain();
-        TerrainData terrain = GenerateTerrain();
-        AddVegetation(terrain); // Call AddVegetation after generating the terrain
-#if UNITY_EDITOR
-        UnityEditor.EditorUtility.SetDirty(terrainSettings);
-#endif
-    }
-
     public void RemoveVegetation()
     {
         Transform[] vegetationChildren = transform.Cast<Transform>().Where(t => t.CompareTag("Vegetation")).ToArray();
@@ -103,7 +85,7 @@ public class TerrainGenerator : MonoBehaviour
     {
         int vegetationCount = terrainSettings.vegetation.Count;
 
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < terrainSettings.vegetationCount; i++)
         {
             int vegetationIndex = UnityEngine.Random.Range(0, vegetationCount);
             float x = UnityEngine.Random.Range(0f, terrainSettings.width);
@@ -123,6 +105,45 @@ public class TerrainGenerator : MonoBehaviour
         OnVegetationGenerated();
     }
 
+    public void UpdateData()
+    {
+        if(upDateTerrainData.width >= 0)
+        {
+            terrainSettings.width = upDateTerrainData.width;
+        }
+
+        if (upDateTerrainData.height >= 0)
+        {
+            terrainSettings.height = upDateTerrainData.height;
+        }
+
+        if (upDateTerrainData.depth >= 0)
+        {
+            terrainSettings.depth = upDateTerrainData.depth;
+        }
+
+        if (upDateTerrainData.scale >= 0)
+        {
+            terrainSettings.scale = upDateTerrainData.scale;
+        }
+
+        if (upDateTerrainData.textures != null && upDateTerrainData.textures.Count > 0)
+        {
+            terrainSettings.textures = upDateTerrainData.textures;
+        }
+
+        if (upDateTerrainData.vegetation != null && upDateTerrainData.vegetation.Count > 0)
+        {
+            terrainSettings.vegetation = upDateTerrainData.vegetation;
+        }
+
+        if (upDateTerrainData.vegetationCount >= 0)
+        {
+            terrainSettings.vegetationCount = upDateTerrainData.vegetationCount;
+        }
+
+        Debug.Log("Data updated at the scriptable object: " + terrainSettings.name);
+    }
 
     private void OnVegetationGenerated()
     {
@@ -142,5 +163,11 @@ public class TerrainGeneratorEditor : Editor
             terrainGenerator.RemoveVegetation();
             terrainGenerator.GenerateTerrain();
         }
+
+        if (GUILayout.Button("Update Data"))
+        {
+            terrainGenerator.UpdateData();
+        }
+
     }
 }

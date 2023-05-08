@@ -1,8 +1,10 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Terrain Settings", menuName = "Terrain Settings")]
-public class TerrainSettings : ScriptableObject
+[Serializable]
+public class TerrainStruct
 {
     public int width = 256;
     public int height = 256;
