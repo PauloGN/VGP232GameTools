@@ -12,16 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a76f4976c50890a4fb4f2ea24855d96c, type: 3}
   m_Name: Terrain02
   m_EditorClassIdentifier: 
-  width: 256
-  height: 256
-  depth: 20
-  scale: 20
+  width: 500
+  height: 500
+  depth: 25
+  scale: 5
   textures:
-  - {fileID: 2800000, guid: a9fa02cdd2d760c43a0e69ba0fa49dab, type: 3}
-  - {fileID: 2800000, guid: a9fa02cdd2d760c43a0e69ba0fa49dab, type: 3}
-  - {fileID: 2800000, guid: a9fa02cdd2d760c43a0e69ba0fa49dab, type: 3}
+  - {fileID: 2800000, guid: 45308e2aea842dd4e87bb30395d6e303, type: 3}
   vegetation:
-  - {fileID: 7061829661080402346, guid: c8a986bf0deec5c47b4c9265ac59ad5f, type: 3}
-  - {fileID: 7061829661080402346, guid: c8a986bf0deec5c47b4c9265ac59ad5f, type: 3}
+  - {fileID: 6558934911539699346, guid: 4a78b399c88efda46b0cba0608ffd1c0, type: 3}
   - {fileID: 7061829661080402346, guid: c8a986bf0deec5c47b4c9265ac59ad5f, type: 3}
   vegetationCount: 100
