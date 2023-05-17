@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Vegetation
   - Enemy
+  - Terrain
   layers:
   - Default
   - TransparentFX

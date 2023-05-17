@@ -27,7 +27,18 @@ public class PlayerController : MonoBehaviour
                 Vector2 normal = collision.contacts[0].normal;
                 if (normal.y > 0.5f)
                 {
-                    UnityEventManager.TriggerEvent<int>(GameEvents.PlayerNearEnemy);
+
+                    //better to be on start function to get it in cash
+                    EnemyController[] enememies = FindObjectsOfType<EnemyController>();
+
+                    foreach (EnemyController enemy in enememies)
+                    {
+                        if(Vector3.Distance(transform.position, enemy.transform.position) <= 10.0f)
+                        {
+                            UnityEventManager.TriggerEvent<int>(GameEvents.PlayerNearEnemy);
+                        }
+                    }
+
                 }
             }
         }
