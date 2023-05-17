@@ -46,9 +46,6 @@ namespace FoxTools
         #endregion
 
 
-
-
-
         #region Custom Methods
         void CreateProjectFolders()
         {

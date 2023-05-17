@@ -36,7 +36,7 @@ namespace FoxTool
             }
 
             Item randomItem = testItems[Random.Range(0, testItems.Length)];
-            int quantity = Random.Range(1, 5); // Random quantity between 1 and 4
+            int quantity = Random.Range(1, 3); // Random quantity between 1 and 2
 
             inventorySystem.AddItem(randomItem, quantity);
         }
@@ -50,7 +50,7 @@ namespace FoxTool
             }
 
             Item randomItem = inventorySystem.GetAllItems()[Random.Range(0, inventorySystem.GetAllItems().Count)];
-            int quantity = Random.Range(1, inventorySystem.GetItemCount(randomItem) + 1); // Random quantity between 1 and item's count
+            int quantity = 1;
 
             inventorySystem.RemoveItem(randomItem, quantity);
         }
