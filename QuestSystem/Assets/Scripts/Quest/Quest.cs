@@ -31,9 +31,9 @@ public class Quest
     public int nextQuest;               //Next quest if there is any(chain quest'id')
 
 
-    public string questionObjective;                  //Name of the quest objective
+    public string questObjective;                  //Name of the quest objective
     public int questObjectiveCount;                  //current number of quest objective count
-    public int questObjectiveRiquirement;           //Riquered amount of quest objectives.
+    public int questObjectiveRequirement;           //Riquered amount of quest objectives.
 
     public int expReward;
     public int goldReward;
