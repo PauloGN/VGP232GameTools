@@ -13,8 +13,10 @@ public class DataUnpackingDemo : MonoBehaviour
         if (unpackedData != null)
         {
             // Access and display the unpacked data
-            outputText.text = "Unpacked Score: " + unpackedData.Score + "\n" +
-                              "Unpacked Level: " + unpackedData.Level;
+            outputText.text = "Unpacked Name: " + unpackedData.charName + "\n" +
+                              "Unpacked Score: " + unpackedData.Score + "\n" +
+                              "Unpacked Level: " + unpackedData.Level + "\n" +
+                              "Unpacked Health: " + unpackedData.health;
         }
     }
 }

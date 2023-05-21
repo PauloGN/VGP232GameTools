@@ -5,8 +5,10 @@ using UnityEngine;
 [Serializable]
 public class GameData
 {
+    public  string charName;
     public int Score;
     public int Level;
+    public float health;
 }
 
 public static class DataSerialization
