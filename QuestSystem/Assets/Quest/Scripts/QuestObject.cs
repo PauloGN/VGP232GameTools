@@ -24,7 +24,8 @@ public class QuestObject : MonoBehaviour
     {
         if (inTrigger && Input.GetKeyDown(actionbtn))
         {
-
+            Debug.Log("Here ready to get the quest...");
+          //  QuestManager.instance.AcceptQuest(availableQuestIds[0]);
         }
     }
 
@@ -33,13 +34,10 @@ public class QuestObject : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
         if (other.CompareTag("Player"))
         {
             inTrigger = true;
         }
-
-
     }
 
 
@@ -48,6 +46,7 @@ public class QuestObject : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             inTrigger = false;
+          //  QuestManager.instance.AddQuestItem("Leave Town", 1);
         }
     }
 
@@ -59,7 +58,6 @@ public class QuestObject : MonoBehaviour
         {
             inTrigger = true;
         }
-
     }
 
     private void OnTriggerExit2D(Collider2D other)

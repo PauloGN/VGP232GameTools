@@ -90,6 +90,57 @@ public class QuestManager : MonoBehaviour
         return false;
     }
 
+    #region Request and Deliver quest
+    public void QuestRequest(QuestObject NPCquestObject)
+    {
+        //see how many ids the npc owns
+        if (NPCquestObject.availableQuestIds.Count >0)
+        {
+            //loop trough the master list
+            for (int i = 0; i < questList.Count; i++)
+            {
+                //for each quest into master list check if the npc has the correspondent quest id
+                for(int j = 0;j < NPCquestObject.availableQuestIds.Count; j++)
+                {
+                    //also check if that particular id aims to an available quest
+                    if (questList[i].id == NPCquestObject.availableQuestIds[j] && questList[i].progress == Quest.QuestProgress.AVAILABLE)
+                    {
+                        Debug.Log("Quest id: " + NPCquestObject.availableQuestIds[j] + " " + questList[i].title );
+
+                        //Testing
+                        AcceptQuest(NPCquestObject.availableQuestIds[j]);
+                        // quest UI manager
+                    }
+                }
+            }
+        }    
+    }
+
+    public void QuestDeliver(QuestObject NPCquestObject)
+    {
+        //loop trough the current quest list
+        for (int i = 0; i < currentQuestList.Count; i++)
+        {
+            //for each quest into current list check if the npc has the correspondent quest id
+            for (int j = 0; j < NPCquestObject.receivableQuestIds.Count; j++)
+            {
+                //also check if that particular id aims to an available quest
+                bool bAcceptedOrCompleted = (currentQuestList[i].progress == Quest.QuestProgress.ACCEPTED || currentQuestList[i].progress == Quest.QuestProgress.COMPLETE);
+                if (currentQuestList[i].id == NPCquestObject.receivableQuestIds[j] && bAcceptedOrCompleted)
+                {
+                    Debug.Log("Quest id: " + NPCquestObject.receivableQuestIds[j] + " " + currentQuestList[i].title);
+                    Debug.Log("Quest progress: " + currentQuestList[i].progress);
+                    //Testing
+                    CompleteQuest(NPCquestObject.receivableQuestIds[j]);
+                    //Quest ui manager
+
+                }
+            }
+        }
+    }
+
+    #endregion
+
     //ACCEPT QUEST 
     public void AcceptQuest(int questID)
     {
